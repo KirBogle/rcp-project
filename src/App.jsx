@@ -27,7 +27,6 @@ class App extends Component {
         return (
             <div className="container">
                 <h1>Fitness</h1>
-                <p>Add a character.</p>
                 <Table
                     characterData={characters}
                     removeCharacter={this.removeCharacter}

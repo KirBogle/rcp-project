@@ -1,11 +1,11 @@
 const EmployeeAPI = {
   employees: [
-    { id: 1, name: "Ben Blocker", job: "Teacher" },
-    { id: 2, name: "Dave Defender", job: "Student" },
-    { id: 3, name: "Sam Sweeper", job: "Teacher" },
-    { id: 4, name: "Matt Midfielder", job: "Student" },
-    { id: 5, name: "William Winger", job: "Student" },
-    { id: 6, name: "Fillipe Forward", job: "Rector" },
+    { id: 1, name: "Ben Blocker", job: "Тренер" },
+    { id: 2, name: "Dave Defender", job: "Админ" },
+    { id: 3, name: "Sam Sweeper", job: "Посетитель" },
+    { id: 4, name: "Matt Midfielder", job: "Тренер" },
+    { id: 5, name: "William Winger", job: "Посетитель" },
+    { id: 6, name: "Fillipe Forward", job: "Админ" },
   ],
   all: function () {
     return this.employees;

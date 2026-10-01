@@ -354,3 +354,25 @@ a.full-button {
   display: block;
   width: 100%;
 }
+
+.container {
+  padding: 0 24px 48px;
+  text-align: left;
+}
+
+.login-form {
+  max-width: 360px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.toolbar button {
+  margin: 0;
+}

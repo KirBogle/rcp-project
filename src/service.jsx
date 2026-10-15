@@ -20,21 +20,17 @@ const EmployeeAPI = {
     return true;
   },
   add: function (employee) {
-    if (!employee.id)
-      employee = {
-        ...employee,
-        id:
-          this.employees.reduce((prev, current) => {
-            return prev.id > current.id ? prev : current;
-          }, 0).id + 1,
-      };
-    this.employees = [...this.employees, employee];
-    return employee;
+    const nextId =
+      this.employees.reduce((max, current) => Math.max(max, current.id), 0) + 1;
+    const created = { name: employee.name, job: employee.job, id: nextId };
+    this.employees = [...this.employees, created];
+    return created;
   },
   update: function (employee) {
-    this.get();
-    this.employees.shift(employee);
-    return employee;
+    this.employees = this.employees.map((item) =>
+      item.id === employee.id ? { ...item, name: employee.name, job: employee.job } : item,
+    );
+    return this.get(employee.id);
   },
 };
 export default EmployeeAPI;

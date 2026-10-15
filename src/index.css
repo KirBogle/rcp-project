@@ -376,3 +376,22 @@ a.full-button {
 .toolbar button {
   margin: 0;
 }
+
+.record-form {
+  max-width: 360px;
+  margin-bottom: 24px;
+}
+
+.form-message {
+  margin: 0 0 12px;
+  color: #d33c40;
+}
+
+.selected-row {
+  background: var(--accent-bg);
+  cursor: pointer;
+}
+
+tbody tr {
+  cursor: pointer;
+}

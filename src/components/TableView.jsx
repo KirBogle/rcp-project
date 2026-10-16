@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import EmployeeAPI from './service';
+import EmployeeAPI from '../api/service';
 
 const jobs = ['Тренер', 'Админ', 'Посетитель'];
 const emptyForm = { name: '', job: 'Посетитель' };

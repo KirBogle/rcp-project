@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { AuthProvider, useAuth } from './auth';
+import { AuthProvider, useAuth } from './context/auth';
 import LoginView from './LoginView';
-import TableView from './TableView';
+import TableView from './components/TableView';
 
 function RequireAuth({ children }) {
   const { isAuthorized } = useAuth();

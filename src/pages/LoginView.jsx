@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { useAuth } from './auth';
+import { useAuth } from './context/auth';
 
 export default function LoginView() {
   const { isAuthorized, login } = useAuth();

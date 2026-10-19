@@ -1,35 +1,30 @@
 import { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { useAuth } from './context/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../store/actions/authActions';
 
 export default function LoginView() {
-  const { isAuthorized, login } = useAuth();
-  const navigate = useNavigate();
-  const [username, setUsername] = useState('');
+  const dispatch = useDispatch();
+  const { loading, error } = useSelector((state) => state.auth);
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  if (isAuthorized) {
-    return <Navigate to="/table" replace />;
-  }
 
   const onSubmit = (event) => {
     event.preventDefault();
-    login();
-    navigate('/table');
+    dispatch(loginUser({ email, password }));
   };
 
   return (
     <div className="container">
       <h1>Вход</h1>
       <form className="login-form" onSubmit={onSubmit}>
-        <label htmlFor="username">Логин</label>
+        <label htmlFor="email">Email</label>
         <input
-          id="username"
-          name="username"
-          type="text"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-          autoComplete="username"
+          id="email"
+          name="email"
+          type="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          autoComplete="email"
         />
         <label htmlFor="password">Пароль</label>
         <input
@@ -40,19 +35,10 @@ export default function LoginView() {
           onChange={(event) => setPassword(event.target.value)}
           autoComplete="current-password"
         />
-        <div className="toolbar">
-          <button type="submit">Войти</button>
-          <button
-            type="button"
-            className="muted-button"
-            onClick={() => {
-              login();
-              navigate('/table');
-            }}
-          >
-            К таблице
-          </button>
-        </div>
+        {error ? <p className="form-message">{error}</p> : null}
+        <button type="submit" disabled={loading}>
+          {loading ? 'Вход...' : 'Войти'}
+        </button>
       </form>
     </div>
   );
